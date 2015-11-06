@@ -39,10 +39,10 @@ $(function() {
   function drawGraph() {
     console.log(samples);
 
-    var width = 500;
+    var width = 800;
     var height = 300;
     var margin = {
-      left: 30, right: 10,
+      left: 60, right: 10,
       bottom: 10, top: 10,
     }
 
