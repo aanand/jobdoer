@@ -1,3 +1,14 @@
+body {
+  font-family: helvetica, sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
 .bar {
-  fill: blue;
+  fill: #1D6CA7;
 }
