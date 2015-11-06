@@ -1,3 +1,5 @@
+# http://pythonfiddle.com/prime-number-generation/
+
 from random import randrange, getrandbits
 from itertools import repeat
 
