@@ -1,0 +1,16 @@
+web:
+  build: ./web
+  ports:
+    - "5000:5000"
+  volumes:
+    - ./web:/code
+  links:
+    - redis
+
+worker:
+  build: ./worker
+  links:
+    - redis
+
+redis:
+  image: redis
