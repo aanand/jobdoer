@@ -5,4 +5,5 @@ redis = Redis(host="redis", port=6379)
 
 if __name__ == "__main__":
     while True:
-        redis.lpush('primes', getPrime(128))
+        getPrime(256)
+        redis.incr('count')

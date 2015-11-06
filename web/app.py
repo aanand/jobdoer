@@ -10,7 +10,7 @@ def home():
 
 @app.route('/count')
 def count():
-    return str(redis.llen('primes'))
+    return str(int(redis.get('count') or 0))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
