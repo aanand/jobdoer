@@ -8,3 +8,5 @@ worker:
 
 redis:
   image: redis
+  volumes:
+    - "mydata:/data"
