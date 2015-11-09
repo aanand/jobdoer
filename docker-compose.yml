@@ -2,11 +2,11 @@ web:
   build: ./web
   ports:
     - "5000:5000"
+  volumes:
+    - "./web:/code"
 
 worker:
   build: ./worker
 
 redis:
   image: redis
-  volumes:
-    - "mydata:/data"
