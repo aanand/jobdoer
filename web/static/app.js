@@ -6,7 +6,8 @@ $(function() {
     samples.push(0);
   }
 
-  var runningCount = 0;
+  var lastCount = 0;
+  var lastCountTime = null;
 
   function tick() {
     $.ajax({
@@ -14,16 +15,19 @@ $(function() {
       dataType: 'text',
       success: function(response) {
         var count = parseInt(response);
-        var delta;
+        var time = new Date().getTime() / 1000;
 
-        if (runningCount === 0) {
-          delta = 0;
+        var rate;
+        if (lastCount && lastCountTime) {
+          rate = (count - lastCount) / (time - lastCountTime);
         } else {
-          delta = count - runningCount;
+          rate = 0;
         }
 
-        runningCount = count;
-        samples.push(delta);
+        lastCount = count;
+        lastCountTime = time;
+
+        samples.push(rate);
         samples = samples.slice(-NUM_SAMPLES);
 
         drawGraph();
@@ -37,8 +41,6 @@ $(function() {
   }
 
   function drawGraph() {
-    console.log(samples);
-
     var width = 800;
     var height = 300;
     var margin = {
