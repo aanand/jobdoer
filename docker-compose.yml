@@ -11,4 +11,4 @@ worker:
 redis:
   image: redis
   volumes:
-    - "mydata:/data"
+    - "myvolume:/data"
